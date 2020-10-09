@@ -1,0 +1,16 @@
+#2.a Generieren Sie die ersten n Primzahlen
+# (n ist eine gegebene natürliche Zahl)
+n = int(input("Geben sie n: ")) #numarul de termeni primi care trebuie gasiti
+primeNumbers = 0        #contor pentru numarul de termeni primi gasiti
+
+def isPrime(a):     #functie pentru verificarea primalitatii unui numar
+    return not(a < 2 or any(a % x == 0 for x in range(2,int(a ** 0.5) + 1)))
+#echivalent cu returneaza adevarat daca niciuna dintre conditiile din paranteza
+#nu sunt adevarate, altfel fals
+
+possiblePrime = 2       #iau valori incepand cu 2
+while primeNumbers < n:
+    if isPrime(possiblePrime):
+        print(possiblePrime)
+        primeNumbers += 1
+    possiblePrime += 1
