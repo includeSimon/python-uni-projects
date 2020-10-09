@@ -1,0 +1,30 @@
+#2b Gegeben sei eine Reihe von Zahlen, finden Sie die längste zusammenhängende Teilfolge
+#so, dass alle zwei beliebige aufeinanderfolgende Elemente relativ prim sind.
+# in alte cuvinte, cel mai mare divizor comun al tuturor numerelor consecutive
+#luate cate 2 sa fie 1
+
+import math #pentru functia implementata gcd
+v = [75, 29, 5,	93,	60,	63, 71,	50,	41,	51] #lista initiala
+
+#voi crea o functie care verifica daca elementele unei liste sunt prime intre
+#ele 2 cate 2
+def allesHatDasGleicheGCD(liste):
+    for x in range(2,len(liste)):
+        if math.gcd(liste[x], liste[x-1]) != 1:     #este important sa compar termenul liste[x] cu liste[x-1] pentru a nu accesa o pozitie de memorie care nu exista
+            return False
+    return True
+
+#acum formez toate multimile de numere, exact ca la exercitiul 1b, la care aplic functia si actualizez maximul
+lungimeMaxima = 1
+inceput = 0
+ceaMaiLungaLista = []
+while(inceput < len(v)):
+    for i in range(len(v) - inceput):
+        listaNoua = v[inceput: inceput + i + 1]     
+        if allesHatDasGleicheGCD(listaNoua):
+            if len(listaNoua) > lungimeMaxima:
+                lungimeMaxima = len(listaNoua)
+                ceaMaiLungaLista = listaNoua
+    inceput += 1
+
+print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
