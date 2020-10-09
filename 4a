@@ -1,0 +1,4 @@
+#4a Berechnen Sie den angenäherten Wert der Quadratwurzel einer positiven reellen Zahl.
+
+n = float(input("Geben sie die reele Zahl: "))
+print(n ** 0.5)
