@@ -21,6 +21,7 @@ print(lungimeMaxima)
 '''
 Observatie: Ca sa se inteleaga mai usor procesul de formare al listelor, daca avem urmatorul cod:
 
+inceput = 0
 while inceput < len(v):
     for i in range(len(v) - inceput):
         submultime = v[inceput:inceput + i + 1]
