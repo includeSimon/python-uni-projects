@@ -1,0 +1,11 @@
+#1.a ->  Generieren Sie alle Primzahlen, die kleiner als eine
+# natürliche Zahl n sind
+n = int(input("Insert n: "))
+
+for possiblePrime in range(2,n+1):
+    isPrime = True
+    for num in range(2,possiblePrime//2 + 1):
+        if possiblePrime % num == 0:
+            isPrime = False
+    if isPrime:
+        print(possiblePrime)
