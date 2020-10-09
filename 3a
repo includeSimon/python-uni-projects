@@ -1,0 +1,14 @@
+#3a  Schreiben Sie eine Funktion, welche das pascalsche Dreieck auf dem Bildschirm ausgibt.
+n = int(input("Geben sie die Reihe Nummer (recomand 23): "))
+
+def combinari(n, k):
+    if k in (0, n):
+        return 1
+    return combinari(n - 1, k - 1) + combinari(n - 1, k)
+
+for row in range(n):
+    for k in range(row + 1):
+        print(combinari(row, k), end=' ')
+    print()
+    
+#Sursa: https://stackoverflow.com/a/24093733/9063851
