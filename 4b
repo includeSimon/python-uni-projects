@@ -1,0 +1,35 @@
+#4b Gegeben sei ein Vektor von Zahlen, finden Sie die längste zusammenhängende Teilfolge
+#so, dass die Differenz von zwei aufeinanderfolgenden Elementen eine Primzahl ist.
+
+#Problema este o combinatie intre 2b si 3b
+#in loc de functia gdc de la 2b voi crea alta functie si ma voi ajuta si de functia isPrime de la 3b
+
+v = [7,	88,	75,	2, 54,	28,	27,	67,	17,	71,	20] #lista initiala
+
+def isPrime(a):
+    '''Functia verifica daca numarul a este prim'''
+    return not(a < 2 or any(a % x == 0 for x in range(2, int(a ** 0.5) + 1)))
+
+def primeDifference(list):
+    '''functia verifica daca diferenta dintre toate perechile de 2 numere consecutive
+    din parametrul list este numar prim'''
+    for x in range(1, len(list)):
+        if isPrime(abs(list[x] - list[x-1])) == 0:  #abs inseamna absolutul valorii introduse in paranteza
+            return False
+    return True
+
+
+#acum formez toate multimile de numere, exact ca la exercitiul 1b, la care aplic functia si actualizez maximul
+lungimeMaxima = 1
+inceput = 0
+ceaMaiLungaLista = []
+while(inceput < len(v)):
+    for i in range(len(v) - inceput):
+        listaNoua = v[inceput: inceput + i + 1]
+        if primeDifference(listaNoua):
+            if len(listaNoua) > lungimeMaxima:
+                lungimeMaxima = len(listaNoua)
+                ceaMaiLungaLista = listaNoua
+    inceput += 1
+
+print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
