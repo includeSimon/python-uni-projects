@@ -17,3 +17,43 @@ while inceput < len(v):
                 lungimeMaxima = len(submultime)
     inceput += 1
 print(lungimeMaxima)
+
+'''
+Observatie: Ca sa se inteleaga mai usor procesul de formare al listelor, daca avem urmatorul cod:
+
+while inceput < len(v):
+    for i in range(len(v) - inceput):
+        submultime = v[inceput:inceput + i + 1]
+        print(submultime)
+    inceput += 1
+    
+Atunci rezultatul va fi:
+[8]
+[8, 5]
+[8, 5, 7]
+[8, 5, 7, 8]
+[8, 5, 7, 8, 1]
+[8, 5, 7, 8, 1, 6]
+[8, 5, 7, 8, 1, 6, 2]
+[5]
+[5, 7]
+[5, 7, 8]
+[5, 7, 8, 1]
+[5, 7, 8, 1, 6]
+[5, 7, 8, 1, 6, 2]
+[7]
+[7, 8]
+[7, 8, 1]
+[7, 8, 1, 6]
+[7, 8, 1, 6, 2]
+[8]
+[8, 1]
+[8, 1, 6]
+[8, 1, 6, 2]
+[1]
+[1, 6]
+[1, 6, 2]
+[6]
+[6, 2]
+[2]
+'''
