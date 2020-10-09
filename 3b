@@ -1,0 +1,24 @@
+#3b Gegeben sei ein Vektor von Zahlen, finden Sie die längste zusammenhängende Teilfolge
+#von Primzahlen.
+# Este exact problema 2b doar ca in loc de functia gcd voi folosi functia de prim
+
+v = [7,	88,	75,	54,	28,	27,	67,	17,	71,	20] #lista initiala
+
+#voi crea o functie care verifica daca un element este prim
+def isPrime(a):
+    return not(a < 2 or any(a % x == 0 for x in range(2, int(a ** 0.5) + 1)))
+
+#acum formez toate multimile de numere, exact ca la exercitiul 1b, la care aplic functia si actualizez maximul
+lungimeMaxima = 1
+inceput = 0
+ceaMaiLungaLista = []
+while(inceput < len(v)):
+    for i in range(len(v) - inceput):
+        listaNoua = v[inceput: inceput + i + 1]
+        if all(isPrime(x) for x in listaNoua):      #folosesc functia all care verifica daca toate elementele respecta conditia introdusa
+            if len(listaNoua) > lungimeMaxima:
+                lungimeMaxima = len(listaNoua)
+                ceaMaiLungaLista = listaNoua
+    inceput += 1
+
+print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
