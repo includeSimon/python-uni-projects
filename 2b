@@ -9,7 +9,7 @@ v = [75, 29, 5,	93,	60,	63, 71,	50,	41,	51] #lista initiala
 #voi crea o functie care verifica daca elementele unei liste sunt prime intre
 #ele 2 cate 2
 def allesHatDasGleicheGCD(liste):
-    for x in range(2,len(liste)):
+    for x in range(1,len(liste)):
         if math.gcd(liste[x], liste[x-1]) != 1:     #este important sa compar termenul liste[x] cu liste[x-1] pentru a nu accesa o pozitie de memorie care nu exista
             return False
     return True
