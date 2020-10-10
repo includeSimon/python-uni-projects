@@ -25,7 +25,7 @@ lungimeMaxima = 1
 inceput = 0
 ceaMaiLungaLista = []
 while(inceput < len(v)):
-    for i in range(len(v)):
+    for i in range(len(v) - 1):
         listaNoua = v[inceput: inceput + i + 1]
         if primeDifference(listaNoua):
             if len(listaNoua) > lungimeMaxima:
