@@ -13,7 +13,7 @@ inceput = 0         #va fi primul element din lista, la care se adauga elemente 
 submultimeMaxima = []
 
 while inceput < len(v):
-    for i in range(len(v)):
+    for i in range(len(v) - inceput):
         submultime = v[inceput:inceput + i + 1]     #creez o submultime din ce in ce mai mare
         if submultime == sorted(submultime):        #verific daca este sortata
             if len(submultime) > lungimeMaxima:
@@ -30,7 +30,7 @@ Observatie: Ca sa se inteleaga mai usor procesul de formare al listelor, daca av
 
 inceput = 0
 while inceput < len(v):
-    for i in range(len(v)):
+    for i in range(len(v) - inceput):
         submultime = v[inceput:inceput + i + 1]
         print(submultime)
     inceput += 1
