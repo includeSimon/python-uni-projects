@@ -1,0 +1,15 @@
+#7a Lese Sequenzen von positiven ganzen Zahlen (das Lesen jeder Sequenz endet mit 0, das
+#Lesen aller Sequenzen endet mit -1) und bestimme das maximale Element jeder Sequenz
+#und das maximale Element der globalen Sequenz
+n = int(input("Geben sie ein Nummer: "))
+
+globaleListe = []
+while n != -1:
+    localeListe = []
+    while n != 0:
+        localeListe.append(n)
+        n = int(input("Geben sie ein Nummer: "))
+    globaleListe.append(max(localeListe))
+    n = int(input("Geben sie ein Nummer: "))
+
+print("Das globale Liste ist: ", globaleListe, " und das maximale globale Element ist: ", max(globaleListe))
