@@ -1,0 +1,15 @@
+#5a  Schreiben Sie eine Funktion, welche den Exponenten einer Primzahl p aus der Zerlegung
+#in Primfaktoren eines gegebenen Zahl n auf dem Bildschirm ausgibt (n ist eine natürliche
+#Zahl).
+
+n = int(input("Geben sie ein Nummer: "))
+d = 2
+
+while n > 1:
+    p = 0
+    while n % d == 0:
+        p += 1
+        n /= d
+    if p:
+        print(d,"^",p)
+    d += 1
