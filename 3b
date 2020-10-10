@@ -2,7 +2,8 @@
 #von Primzahlen.
 # Este exact problema 2b doar ca in loc de functia gcd voi folosi functia de prim
 
-v = [7,	88,	75,	54,	28,	27,	67,	17,	71,	20] #lista initiala
+import random
+v = [random.randint(-100,101) for i in range(15)] #creez o lista random
 
 #voi crea o functie care verifica daca un element este prim
 def isPrime(a):
@@ -22,3 +23,4 @@ while(inceput < len(v)):
     inceput += 1
 
 print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
+print("Multimea initiala: ", v)
