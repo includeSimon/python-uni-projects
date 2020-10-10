@@ -13,7 +13,7 @@ lungimeMaxima = 1
 inceput = 0
 ceaMaiLungaLista = []
 while(inceput < len(v)):
-    for i in range(len(v) - inceput):
+    for i in range(len(v)):
         listaNoua = v[inceput: inceput + i + 1]
         if all(isPrime(x) for x in listaNoua):      #folosesc functia all care verifica daca toate elementele respecta conditia introdusa
             if len(listaNoua) > lungimeMaxima:
