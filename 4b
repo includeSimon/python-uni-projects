@@ -4,7 +4,8 @@
 #Problema este o combinatie intre 2b si 3b
 #in loc de functia gdc de la 2b voi crea alta functie si ma voi ajuta si de functia isPrime de la 3b
 
-v = [7,	88,	75,	2, 54,	28,	27,	67,	17,	71,	20] #lista initiala
+import random
+v = [random.randint(-100,101) for i in range(15)] #creez o lista random
 
 def isPrime(a):
     '''Functia verifica daca numarul a este prim'''
@@ -33,3 +34,4 @@ while(inceput < len(v)):
     inceput += 1
 
 print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
+print("Multimea initiala: ", v)
