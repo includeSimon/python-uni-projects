@@ -1,0 +1,26 @@
+#7b. Geben Sie die längste zusammenhängende Teilsequenz mit einem Vektor aus Zahlen so
+#an, dass alle Elemente in einem bestimmten Intervall liegen.
+#in alte cuvinte trebuie sa gasim cea mai lunga secventa de numere crescatoare dintr-un anumit interval
+import random
+v = [random.randint(-100,101) for i in range(15)] #creez o lista random
+
+stanga = int(input("Inserati marginea inferioara (inchisa): "))
+dreapta = int(input("Inserati marginea superioara (inchisa): "))
+lungimeMaxima = -1
+inceput = 0
+submultimeMaxima = []
+
+while inceput < len(v):
+    for i in range(len(v)):
+        submultime = v[inceput:inceput + i + 1]     #creez o submultime din ce in ce mai mare
+        if submultime == sorted(submultime):        #verific daca este sortata
+            if min(submultime) >= stanga and max(submultime) <= dreapta:
+                if len(submultime) > lungimeMaxima:
+                    lungimeMaxima = len(submultime)
+                    submultimeMaxima = submultime
+    inceput += 1
+
+print()
+print("Numarul de elemente din intervalul [", stanga, ",", dreapta, "] este: ", lungimeMaxima)
+print("Multimea initiala: ", v)
+print("Submultimea de lungime maxima: ", submultimeMaxima)
