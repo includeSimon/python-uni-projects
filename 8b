@@ -18,6 +18,7 @@ while inceput < len(v):
         if Ok(submultime):
             if len(submultime) > len(submultimeMaxima):
                 submultimeMaxima = submultime
+        else: break                                 #detaliu subtil de tip programare dinamica. Se observa diferenta cand se schimba dimensiunea vectorului
     inceput += 1
 print(v)
 print(submultimeMaxima)
