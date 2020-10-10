@@ -14,7 +14,8 @@ submultimeMaxima = []
 
 while inceput < len(v):
     for i in range(len(v) - inceput):
-        submultime = v[inceput:inceput + i + 1]     #creez o submultime din ce in ce mai mare
+        submultime = v[inceput:inceput + i + 1]     #creez o submultime din ce in ce mai mare, iar +1 este deoarece v[a:b], b va fi cu 1 mai mic, ca la range(a,b)
+                                                    # de ex, v are 6 elemente, daca scriu v[6] imi da eroare, insa v[1:6] e ok
         if submultime == sorted(submultime):        #verific daca este sortata
             if len(submultime) > lungimeMaxima:
                 lungimeMaxima = len(submultime)
