@@ -1,0 +1,11 @@
+#6a Lesen Sie eine Sequenz von natürlichen Zahlen (Sequenz mit 0 beendet) und bestimmen
+#Sie die Anzahl von 0 Ziffern des Produkts der gelesenen Zahlen
+n = int(input("Geben sie ein Nummer: "))
+produkt = 1
+
+while n != 0:
+    produkt *= n
+    n = int(input("Geben sie ein Nummer: "))
+
+listOfNumbers = [int(s) for s in str(produkt)]  #str(produkt) transforma din numar in cuvant, apoi iterez fiecare litera si o inserez ca numar in lista
+print(listOfNumbers.count(0))
