@@ -1,0 +1,6 @@
+#8a. Bestimmen Sie den Wert x ^ n, wobei x eine reelle Zahl und n eine natürliche Zahl ist,
+#indem Sie nur Multiplikations- und Quadratoperationen nutzen
+x = int(input("Insert x: "))
+n = int(input("Insert n: "))
+
+print(x ** n)
