@@ -1,0 +1,34 @@
+#9b Bei einem gegebenen Zahlenvektor finde die längste aufeinanderfolgende Teilfolge wobei
+#aufeinanderfolgenden Elemente dieselben Ziffern enthalten.
+import random
+v = [random.randint(-10, 10) for i in range(5000)]
+
+def Ok(submultime):
+    '''Functia verifica daca fiecare 2 numere consecutive din submultime sunt formate din aceleasi cifre'''
+    for i in range(1, len(submultime)):
+        vectorCifre1 = [0,0,0,0,0,0,0,0,0,0]     #9 de zero
+        vectorCifre2 = [0,0,0,0,0,0,0,0,0,0]
+        for c1 in str(submultime[i-1]):
+            if c1 == '-':
+                continue
+            vectorCifre1[int(c1)] += 1
+        for c2 in str(submultime[i]):
+            if c2 == '-':
+                continue
+            vectorCifre2[int(c2)] += 1
+        if str(vectorCifre1) != str(vectorCifre2):
+            return False
+    return True
+
+inceput = 0
+submultimeMaxima = []
+while inceput < len(v):
+    for i in range(len(v) - inceput):
+        submultime = v[inceput:inceput + i + 1]
+        if Ok(submultime):
+            if len(submultime) > len(submultimeMaxima):
+                submultimeMaxima = submultime
+        else: break             #detaliu subtil de programare dinamica
+    inceput += 1
+
+print(submultimeMaxima)
