@@ -11,7 +11,7 @@ inceput = 0
 submultimeMaxima = []
 
 while inceput < len(v):
-    for i in range(len(v)):
+    for i in range(len(v) - 1):
         submultime = v[inceput:inceput + i + 1]     #creez o submultime din ce in ce mai mare
         if submultime == sorted(submultime):        #verific daca este sortata
             if min(submultime) >= stanga and max(submultime) <= dreapta:
