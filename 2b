@@ -27,6 +27,7 @@ while(inceput < len(v)):
             if len(listaNoua) > lungimeMaxima:
                 lungimeMaxima = len(listaNoua)
                 ceaMaiLungaLista = listaNoua
+        else: break                                 #detaliu subtil de tip programare dinamica. Se observa diferenta cand se schimba dimensiunea vectorului
     inceput += 1
 
 print("Lungimea maxima este", lungimeMaxima, "si lista este ", ceaMaiLungaLista)
