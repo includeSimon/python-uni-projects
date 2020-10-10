@@ -1,0 +1,23 @@
+#8b. Bei einem gegebenen Zahlenvektor finde die längste aufeinanderfolgende Teilfolge
+#wobei jede zwei aufeinanderfolgende Elemente entgegengesetzte Vorzeichen haben.
+import random
+v = [random.randint(-100,100) for i in range(15)]
+
+def Ok(lista):  #puteam folosi si functia predefinita zip
+    '''Functia verifica daca fiecare 2 elemente consecutive au semn diferit'''
+    for i in range(1, len(lista)):
+        if lista[i] * lista[i-1] >= 0:
+            return False
+    return True
+
+inceput = 0
+submultimeMaxima = []
+while inceput < len(v):
+    for i in range(len(v) - inceput):
+        submultime = v[inceput:inceput + i + 1]
+        if Ok(submultime):
+            if len(submultime) > len(submultimeMaxima):
+                submultimeMaxima = submultime
+    inceput += 1
+print(v)
+print(submultimeMaxima)
