@@ -1,0 +1,42 @@
+'''2. Gegeben seien zwei große Zahlen, die als Strings gespeichert sind. Schreiben Sie eine Funktion, die die Summe dieser
+beiden Zahlen berechnet und es als String zurückgibt. Beispiel:
+a = “1234556544345”
+b = “2343234”
+big_sum(a,b) -> “1234558887579”'''
+
+a = "1234556544345"
+b = "2343234"
+'''
+for i in range(min(len(a),len(b))):
+    c.insert(0,int(a[::-1][i]) + int(b[::-1][i]))
+
+for i in reversed(range(abs(len(a) - len(b)))):
+    if len(a) > len(b):
+        c.insert(0,a[i])
+    else:
+        c.insert(0,b[i])
+
+d = "".join([str(elem) for elem in c] )
+print(d)'''
+
+
+def big_sum(a,b):
+    c = []                  #voi stoca rezultatele adunarilor in lista c, pe care o voi transforma in string
+    carryFlag = 0           #ca si la ASC, memoreaza daca suma a depasit 9
+
+    for i in range(min(len(a), len(b))):      #adunarea se face de la stanga la dreapta, deci ma orientez dupa cea mai mica lungime
+        rezultat = int(a[::-1][i]) + int(b[::-1][i])
+        c.insert(0, rezultat % 10 + carryFlag)  #adaug la inceputul listei c ultima cifra a rezultatului
+        if rezultat // 10:
+            carryFlag = 1
+        else:
+            carryFlag = 0
+
+    for i in reversed(range(abs(len(a) - len(b)))): #mai trebuie adaugate cifrele din fata numarului mai mare
+        if len(a) > len(b):
+            c.insert(0, a[i])
+        else:
+            c.insert(0, b[i])
+    print("".join(str(elem) for elem in c))
+
+big_sum(a,b)
