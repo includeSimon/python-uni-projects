@@ -1,4 +1,4 @@
-#1b
+#1b Gegeben sei ein Vektor von Zahlen, finden Sie die längste ansteigende zusammenhängende Teilfolge
 '''
 Ideea solutiei: voi crea submultimi ale lui v si verific daca sunt sortate, returnand lungimea maxima
 Observatii:
