@@ -6,19 +6,6 @@ big_sum(a,b) -> “1234558887579”'''
 
 a = "1234556544345"
 b = "2343234"
-'''
-for i in range(min(len(a),len(b))):
-    c.insert(0,int(a[::-1][i]) + int(b[::-1][i]))
-
-for i in reversed(range(abs(len(a) - len(b)))):
-    if len(a) > len(b):
-        c.insert(0,a[i])
-    else:
-        c.insert(0,b[i])
-
-d = "".join([str(elem) for elem in c] )
-print(d)'''
-
 
 def big_sum(a,b):
     c = []                  #voi stoca rezultatele adunarilor in lista c, pe care o voi transforma in string
@@ -29,14 +16,14 @@ def big_sum(a,b):
         c.insert(0, rezultat % 10 + carryFlag)  #adaug la inceputul listei c ultima cifra a rezultatului
         if rezultat // 10:
             carryFlag = 1
-        else:
+        else:                                   #pentru repetitiile cand adunarea <= 9, este necesar sa resetez flagul
             carryFlag = 0
 
-    for i in reversed(range(abs(len(a) - len(b)))): #mai trebuie adaugate cifrele din fata numarului mai mare
+    for i in reversed(range(abs(len(a) - len(b)))): #mai trebuie adaugate cifrele din fata numarului mai mare; echivalent cu range(abs(len(a) - len(b), 0, -1))
         if len(a) > len(b):
             c.insert(0, a[i])
         else:
             c.insert(0, b[i])
-    print("".join(str(elem) for elem in c))
+    print("".join(str(elem) for elem in c))         #transform din lista de numere in string; se pot folosi variante mai clare, dar asa este mai rapid
 
 big_sum(a,b)
