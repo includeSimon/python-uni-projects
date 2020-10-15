@@ -1,0 +1,19 @@
+'''Schreiben Sie eine Funktion, die einen String als Parameter bekommt.
+Die funktion soll nur die Vokale des String umkehren. Beispiel: 
+word = “Terminator” 
+reverse(word) -> “Tormaniter'''
+
+word = "Terminator"
+vowels_position = []
+copy1 = [c for c in word]       #copie pe care nu o modific, donatoare de litere pentru copy2
+copy2 = [c for c in word]       #copie pe care o modific si care necesita donator (regula celor trei pahare)
+
+for i in range(len(word)):      #gasesc pozitiile vocalelor
+    if word[i] in "aeiouAEIOU":
+        vowels_position.append(i)
+
+for i in range(len(vowels_position) // 2):
+    copy2[vowels_position[i]] = copy1[vowels_position[::-1][i]]        #prima pozitie cu ultima
+    copy2[vowels_position[::-1][i]] = copy1[vowels_position[i]]        #ultima cu prima
+
+print("".join(copy2))       #transform in string
