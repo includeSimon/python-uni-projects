@@ -21,7 +21,7 @@ inceput = 0
 ceaMaiLungaLista = []
 
 while(inceput < len(v)):
-    for i in range(len(v) - 1):
+    for i in range(len(v) - inceput):
         listaNoua = v[inceput: inceput + i + 1]     
         if allesHatDasGleicheGCD(listaNoua):
             if len(listaNoua) > lungimeMaxima:
