@@ -1,0 +1,41 @@
+'''Prüfen Sie anhand einer Maxtrix und eines Wortes, ob das Wort in der Matrix erscheint.
+Das Wort kann aus Buchstaben benachbarter Zellen (horizontal und vertikal) aufgebaut werden. Beispiel:
+matrix =
+[
+[‘A’,’B’,’C’,’D’],
+[‘L’,’A’,’G’,’H’],
+[‘Q’,’R’,’M’,’F’]
+]
+word = “ALARM”
+word_exists(matrix,word) -> True '''
+
+word = "ALARM"
+matrix =[
+['A','B','C','D'],
+['L','A','R','H'],
+['Q','P','M','F']
+]
+
+def Ok(x,y):    #functie care verifica daca indicii nu depasesc matricea
+    if x < 0 or x >= len(matrix) or y < 0 or y >= len(matrix[0]):
+        return False
+    return True
+
+def Lee(x, y, current_word , searched_word, matrix):
+    if current_word == searched_word:               #conditia de iesire
+        return True
+
+    if len(current_word) >= len(searched_word):     #breather pentru procesor
+        return False
+
+    current_word += matrix[x][y]
+
+    d_x = [1,0,-1,0]            #vectori de deplasare
+    d_y = [0,1,0,-1]
+    for i in range(len(d_x)):   #astfel calculez elegant si simplu fiecare pozitie posibila
+        if Ok(d_x[i] + x, d_y[i] + y):
+            if Lee(d_x[i] + x, d_y[i] + y, current_word, searched_word, matrix):    #daca gasesc cel putin un caz adevarat, atunci va fi un chain de true
+                return True
+    return False                #ca sa nu returneze None
+
+print(Lee(0,0,"",word,matrix))
