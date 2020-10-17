@@ -1,0 +1,50 @@
+'''b. Bei einem Vektor aus Zahlen finden Sie die
+ längste zusammenhängende Teilfolge, so dass alle aufeinanderfolgenden Elemente
+ mindestens zwei verschiedene Ziffern gemeinsam haben
+
+    numar1 = [3,8]
+    numar2 = [1,2,3,8]
+'''
+v = [12, 21, 1, 34]       #ce se intampla daca avem 2 cifre identice
+
+#v = [14, 59, 38, 100]
+
+def intToList(numar):
+    lista = []
+    while numar > 0:
+        if numar%10 not in lista:
+            lista.append(numar%10)
+        numar = numar // 10
+    return lista
+
+def Ok(lista):
+    for i in range(len(lista) - 1):         #transformam in lista numerele
+        numar1 = intToList(lista[i])
+        numar2 = intToList(lista[i+1])
+        contor = 0
+        if len(numar1) > len(numar2):
+            for cifra in numar1:
+                if cifra not in numar2:
+                    contor += 1
+        else:
+            for cifra in numar2:
+                if cifra not in numar1:
+                    contor += 1
+        if contor >= 2:
+            return True
+        return False
+    return False
+
+
+inceput = 0
+submultimeMaxima = []
+while inceput < len(v):
+    for i in range(len(v) - inceput):
+        submultime = v[inceput : inceput + i + 1]
+        if Ok(submultime):
+            if len(submultimeMaxima) < len(submultime):
+                submultimeMaxima = submultime
+        else: continue
+    inceput += 1
+
+print(submultimeMaxima)
